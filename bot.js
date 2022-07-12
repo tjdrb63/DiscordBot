@@ -13,10 +13,10 @@ const client = new Client({ intents: [
                             Intents.FLAGS.GUILD_MESSAGES ]});
 
 
-let maxComment = 0;
+let maxComment = 130938;
 
 client.on('ready',() => {
-    var task = cron.schedule('10 * * * * *',function(){       
+    var task = cron.schedule('30 * * * *',function(){       
         axios.get("http://www.emuline.org/topic/1915-arcade-pc-sdvx-vivid-wave/page/100/")
         .then(res=>{
             const $ = cheerio.load(res.data);
