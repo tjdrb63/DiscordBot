@@ -16,6 +16,7 @@ const client = new Client({ intents: [
 let maxComment = 130938;
 
 client.on('ready',() => {
+    client.channels.cache.get('963395504815869962').send("작동 시작");               
     var task = cron.schedule('30 * * * *',function(){       
         axios.get("http://www.emuline.org/topic/1915-arcade-pc-sdvx-vivid-wave/page/100/")
         .then(res=>{
@@ -36,7 +37,8 @@ client.on('ready',() => {
                     client.channels.cache.get('963395504815869962').send({embeds : [embed]});
                 }
                 else{
-                    console.log("체크 결과 : 새로운 코맨트 없음")
+                    client.channels.cache.get('963395504815869962').send("30분 기준 체크하는지 확인");
+                
                 }
             }) 
         }) 
